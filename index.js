@@ -54,3 +54,49 @@ const writeSVG = (fileName, data) => {
       console.log(`${fileName} has been created`);
     })
   }
+
+async function init(){
+    let svgFile = "logo.svg";
+    let svgRender = "";
+
+    const answers = await inquirer.prompt(userQuestions);
+
+    let userText = ""
+    if (answers.text.length < 4 && answers.text.length > 0){
+        userText = answer.text;
+    } else {
+        console.log("Text must be between 1 and 3 characters");
+        return;
+    }
+
+    let userTextColor = answers.textColor;
+
+    let userShape = answers.shape;
+
+    let userShapeColor = answers.shapeColor;
+
+    let shapeChoice;
+
+    if (userShape === "Circle") {
+        shapeChoice = new Circle();
+      }
+      else if (userShape === "Triangle") {
+        shapeChoice = new Triangle();
+      }
+      else if (userShape === "Square") {
+        shapeChoice = new Square();
+      }
+      else {
+        return null;
+      };
+
+    const newSvg = new RenderLogo();
+    newSvg.newText(userText, userTextColor);
+    newSvg.newShape(userShape, userShapeColor)
+
+    svgRender = newSvg.render();
+
+    writeSVG(svgFile,svgRender);
+}
+
+init();
