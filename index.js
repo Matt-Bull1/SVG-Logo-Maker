@@ -12,12 +12,12 @@ const userQuestions = [
     {
         type: "input",
         name: "textColor",
-        message: "Enter up to 3 characters"
+        message: "Enter a color for the text"
     },
     {
         type: "input",
         name: "shapeColor",
-        message: "Enter up to 3 characters"
+        message: "Enter a color for the Shape"
     }, 
     {
         type: "list",
@@ -63,7 +63,7 @@ async function init(){
 
     let userText = ""
     if (answers.text.length < 4 && answers.text.length > 0){
-        userText = answer.text;
+        userText = answers.text;
     } else {
         console.log("Text must be between 1 and 3 characters");
         return;
@@ -91,8 +91,8 @@ async function init(){
       };
 
     const newSvg = new RenderLogo();
-    newSvg.newText(userText, userTextColor);
-    newSvg.newShape(userShape, userShapeColor)
+    newSvg.setText(userText, userTextColor);
+    newSvg.setShape(shapeChoice, userShapeColor)
 
     svgRender = newSvg.render();
 
