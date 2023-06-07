@@ -45,3 +45,12 @@ class RenderLogo {
 
     };
 };
+
+const writeSVG = (fileName, data) => {
+    fs.writeFile(fileName, data, function (err) {
+      if (err) {
+        console.log(err);
+      }
+      console.log(`${fileName} has been created`);
+    })
+  }
