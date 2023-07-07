@@ -14,7 +14,7 @@
   ## Installation
   Download a zip of the code and run in software of choice (VSCODE recommended)
   ## Usage
-  https://www.youtube.com/watch?v=BHmOEG2JLYs
+  https://youtu.be/Ti-tHbyAyMk
   Use node ./ or node index.js in your terminal to start the code
   ## Contributors
   N/A
