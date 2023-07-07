@@ -33,14 +33,15 @@ class RenderLogo {
         this.userShape = ""
     };
     render(){
-        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.userShape}${this.userText}</svg>`
+      return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.userShape}${this.userText}</svg>`
     };
 
     setText(text, color){
         this.userText = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
     };
 
-    setShape(shape){
+    setShape(shape, color){
+        this.color = shape.setColor(color)
         this.userShape = shape.render();
 
     };
@@ -74,7 +75,6 @@ async function init(){
     let userShape = answers.shape;
 
     let userShapeColor = answers.shapeColor;
-
     let shapeChoice;
 
     if (userShape === "Circle") {
